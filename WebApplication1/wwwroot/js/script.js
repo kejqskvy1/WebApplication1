@@ -96,6 +96,7 @@ function addTask() {
 }
 
 function removeTask(taskItem) {
+    const taskText = taskItem.firstChild.textContent.trim();
     highlightTask_Red(taskItem);
     setTimeout(() => {
         taskItem.remove();
