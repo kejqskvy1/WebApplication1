@@ -87,6 +87,12 @@ function addTask() {
     taskInput.value = '';
     enableDragAndDrop();
     sendTaskUpdate(taskItem.id);
+
+    gtag('event', 'task_created', {
+    'event_category': 'Tasks',
+    'event_label': taskText,
+    'value': 1
+});
 }
 
 function removeTask(taskItem) {
@@ -95,6 +101,11 @@ function removeTask(taskItem) {
         taskItem.remove();
         saveTasks();
         sendTaskUpdate(taskItem.id);
+        gtag('event', 'task_removed', {
+    'event_category': 'Tasks',
+    'event_label': taskText,
+    'value': 1
+});
     }, 500);
 }
 
